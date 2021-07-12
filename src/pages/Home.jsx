@@ -1,11 +1,13 @@
 import React from "react";
+import Logo from "../components/Logo";
 
 const Home = () => {
   return (
-    <div class="full-screen">
+    <div className="full-screen">
       <div className="logo">
-        <h1>LOGO</h1>
+        <Logo />
       </div>
+      <div className="card">REVIEW</div>
     </div>
   );
 };

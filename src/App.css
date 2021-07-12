@@ -3,7 +3,11 @@
 }
 
 .full-screen {
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 88vh;
   background-color: rgb(151, 241, 241);
 }
 
@@ -23,4 +27,21 @@
   background-color: rgb(245, 171, 145);
   width: 98vw;
   height: 8vh;
+}
+
+.logo {
+  position: relative;
+  background-color: crimson;
+}
+
+.plain-link {
+  text-decoration: none;
+  background-color: chartreuse;
+  padding: 3vh 8.5vw;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.plain-link:hover {
+  background-color: chocolate;
 }

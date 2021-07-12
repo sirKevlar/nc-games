@@ -1,5 +1,6 @@
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
+import { useState } from "react";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Comments from "./pages/Comments";
@@ -10,6 +11,7 @@ import UserSingle from "./pages/UserSingle";
 import InvalidPath from "./pages/InvalidPath";
 
 function App() {
+  const [reviews, setReviews] = useState([]);
   return (
     <div className="App">
       <Header />
@@ -21,7 +23,7 @@ function App() {
           <Comments />
         </Route>
         <Route exact path="/reviews">
-          <Reviews />
+          <Reviews reviews={reviews} setReviews={setReviews} />
         </Route>
         <Route exact path="/reviews/:review_id">
           <ReviewSingle />

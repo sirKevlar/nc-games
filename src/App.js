@@ -7,6 +7,7 @@ import Reviews from "./pages/Reviews";
 import ReviewSingle from "./pages/ReviewSingle";
 import Users from "./pages/Users";
 import UserSingle from "./pages/UserSingle";
+import InvalidPath from "./pages/InvalidPath";
 
 function App() {
   return (
@@ -22,14 +23,17 @@ function App() {
         <Route exact path="/reviews">
           <Reviews />
         </Route>
-        <Route>
+        <Route exact path="/reviews/:review_id">
           <ReviewSingle />
         </Route>
-        <Route>
+        <Route exact path="/users">
           <Users />
         </Route>
-        <Route>
+        <Route exact path="/users/:user_id">
           <UserSingle />
+        </Route>
+        <Route path="*">
+          <InvalidPath />
         </Route>
       </Switch>
     </div>

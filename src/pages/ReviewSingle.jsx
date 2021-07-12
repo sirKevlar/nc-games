@@ -1,7 +1,7 @@
 import React from "react";
 
 const ReviewSingle = () => {
-  return <div>SINGLE REVIEW</div>;
+  return <div className="full-screen">SINGLE REVIEW</div>;
 };
 
 export default ReviewSingle;

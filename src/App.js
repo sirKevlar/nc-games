@@ -9,12 +9,14 @@ import ReviewSingle from "./pages/ReviewSingle";
 import Users from "./pages/Users";
 import UserSingle from "./pages/UserSingle";
 import InvalidPath from "./pages/InvalidPath";
+import Sidenav from "./components/Sidenav";
 
 function App() {
   const [reviews, setReviews] = useState([]);
   return (
     <div className="App">
       <Header />
+      <Sidenav />
       <Switch>
         <Route exact path="/">
           <Home />

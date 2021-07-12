@@ -1,7 +1,7 @@
 import React from "react";
 
 const Users = () => {
-  return <div>USERS</div>;
+  return <div className="full-screen">USERS</div>;
 };
 
 export default Users;

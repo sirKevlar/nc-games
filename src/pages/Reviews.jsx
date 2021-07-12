@@ -7,7 +7,7 @@ const Reviews = ({ reviews, setReviews }) => {
     getReviews();
   }, []);
 
-  return <div>REVIEWS</div>;
+  return <div className="full-screen">REVIEWS</div>;
 };
 
 export default Reviews;

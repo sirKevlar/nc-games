@@ -1,5 +1,17 @@
+body {
+  min-width: 350px;
+  max-width: 600px;
+}
+
 .App {
   text-align: center;
+  display: grid;
+  grid-template-rows: 12vh auto;
+  grid-template-columns: 25vw 25vw 25vw 25vw;
+  grid-template-areas:
+    "header header header header"
+    "sidenav contents contents contents";
+  align-items: stretch;
 }
 
 .full-screen {
@@ -9,14 +21,15 @@
   align-items: center;
   height: 88vh;
   background-color: rgb(151, 241, 241);
+  grid-area: contents;
 }
 
 .header {
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 12vh;
-  background-color: rgb(190, 175, 204);
+  justify-content: center;
+  grid-area: header;
+  background-color: rgb(84, 7, 156);
 }
 
 .nav-bar {
@@ -25,8 +38,16 @@
   align-items: center;
   justify-content: space-around;
   background-color: rgb(245, 171, 145);
-  width: 98vw;
+  width: 100vw;
   height: 8vh;
+}
+
+.sidenav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  grid-area: sidenav;
+  background-color: darkgreen;
 }
 
 .logo {
@@ -35,9 +56,13 @@
 }
 
 .plain-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   background-color: chartreuse;
-  padding: 3vh 8.5vw;
+  width: 25vw;
+  height: 8vh;
   font-weight: 700;
   letter-spacing: 0.1em;
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { getUsers } from "../utils/api";
+import { selectProfileUser } from "../utils/utils";
 import gamesLogo from "../assets/logos/gamesLogoSimple.png";
 
 const Intro = ({ users, setUsers }) => {
@@ -15,14 +16,23 @@ const Intro = ({ users, setUsers }) => {
       <img src={gamesLogo} alt="games logo" />
       <div className="user-select">
         <h3>Select your user...</h3>
-        <div className="dropdown">
-          <select name="user-id">
+        <form className="dropdown">
+          <select
+            id="user-id"
+            onChange={(event) => {
+              selectProfileUser(event);
+            }}
+          >
             {users.map((user) => {
-              return <option value={user.username}>{user.username}</option>;
+              return (
+                <option key={user.username} value={user.username}>
+                  {user.username}
+                </option>
+              );
             })}
           </select>
           <button className="button">LET ME IN</button>
-        </div>
+        </form>
       </div>
     </div>
   );

@@ -11,11 +11,11 @@ const Reviews = ({ reviews, setReviews }) => {
   }, [setReviews]);
   return (
     <div className="full-screen-scroll">
-      <ul className="reviews-list">
+      <ul className="list">
         {reviews.map((review) => {
           return (
             <li key={review.review_id}>
-              <section className="review-card">
+              <section className="card">
                 <div className="card-info">
                   <section className="pic-plus-id">
                     <h3 className="user-name">{review.owner}</h3>

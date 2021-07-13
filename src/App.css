@@ -18,6 +18,17 @@ ul {
     "sidenav contents contents contents";
 }
 
+.full-viewport {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  background-color: darkmagenta;
+}
+
 .full-screen {
   display: flex;
   flex-direction: column;
@@ -41,11 +52,11 @@ ul {
 
 .header {
   display: flex;
+  position: fixed;
   align-items: center;
   justify-content: center;
   grid-area: header;
   overflow: hidden;
-  position: fixed;
   z-index: 100;
   opacity: 0.8;
 }
@@ -93,9 +104,9 @@ ul {
   background-color: chocolate;
 }
 
-.reviews-list {
+.list {
   position: relative;
-  height: 60vh;
+  height: 80vh;
 }
 
 .review-img {
@@ -104,7 +115,7 @@ ul {
   object-fit: cover;
 }
 
-.review-card {
+.card {
   display: flex;
   flex-direction: column;
   background-color: burlywood;
@@ -130,4 +141,34 @@ ul {
   align-items: center;
   height: 5vh;
   padding-bottom: 0.2em;
+}
+
+.users {
+  height: 8vh;
+  display: flex;
+}
+
+.usernames {
+  margin-left: 2em;
+  margin-right: -3em;
+}
+
+.user-icon {
+  padding: 0.2em;
+}
+
+#user-card:hover {
+  background-color: rgb(238, 117, 141);
+}
+
+.dropdown {
+  display: flex;
+  width: 45vw;
+  justify-content: space-between;
+  margin-top: 2em;
+  opacity: 0.8;
+}
+
+.button:hover {
+  background-color: darkorange;
 }

@@ -1,6 +1,12 @@
 import React from "react";
 import { useEffect } from "react";
 import { getUsers } from "../utils/api";
+// import cooljmessy from "../assets/userIcons/cooljmessy.png";
+// import grumpy19 from "../assets/userIcons/grumpy19.png";
+import happyamy2016 from "../assets/userIcons/happyamy2016.png";
+// import jessjelly from "../assets/userIcons/jessjelly.png";
+// import tickle122 from "../assets/userIcons/tickle122.png";
+// import weegembump from "../assets/userIcons/weegembump.png";
 
 const Users = ({ users, setUsers }) => {
   useEffect(() => {
@@ -9,11 +15,25 @@ const Users = ({ users, setUsers }) => {
       setUsers(users);
     });
   }, [setUsers]);
+  console.log(users);
   return (
     <div className="full-screen-scroll">
-      <ul className="reviews-list">
+      <ul className="list">
         {users.map((user) => {
-          return <li key={user.user_id}>USER: {user.user_id}</li>;
+          return (
+            <section id="user-card" className="card">
+              <li className="users" key={user.username}>
+                <div className="card-info">
+                  <img
+                    className="user-icon"
+                    src={happyamy2016}
+                    alt="user icon"
+                  />
+                  <h4 className="usernames">{user.username}</h4>
+                </div>
+              </li>
+            </section>
+          );
         })}
       </ul>
     </div>

@@ -10,6 +10,7 @@ import Users from "./pages/Users";
 import UserSingle from "./pages/UserSingle";
 import InvalidPath from "./pages/InvalidPath";
 import Sidenav from "./components/Sidenav";
+import Intro from "./pages/Intro";
 
 function App() {
   const [reviews, setReviews] = useState([]);
@@ -20,6 +21,9 @@ function App() {
       <Sidenav />
       <Switch>
         <Route exact path="/">
+          <Intro users={users} setUsers={setUsers} />
+        </Route>
+        <Route exact path="/home">
           <Home />
         </Route>
         <Route exact path="/reviews/:review_id/comments">

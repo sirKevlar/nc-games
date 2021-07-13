@@ -3,6 +3,11 @@ body {
   max-width: 600px;
 }
 
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
 .App {
   text-align: center;
   display: grid;
@@ -11,7 +16,6 @@ body {
   grid-template-areas:
     "header header header header"
     "sidenav contents contents contents";
-  align-items: stretch;
 }
 
 .full-screen {
@@ -24,12 +28,27 @@ body {
   grid-area: contents;
 }
 
+.full-screen-scroll {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(151, 241, 241);
+  grid-area: contents;
+  overflow: auto;
+  height: 88vh;
+  padding-bottom: 10em;
+}
+
 .header {
   display: flex;
   align-items: center;
   justify-content: center;
   grid-area: header;
-  background-color: rgb(84, 7, 156);
+  overflow: hidden;
+  position: fixed;
+  z-index: 100;
+  opacity: 0.8;
 }
 
 .nav-bar {
@@ -39,10 +58,14 @@ body {
   justify-content: space-around;
   background-color: rgb(245, 171, 145);
   width: 100vw;
-  height: 8vh;
+  height: 12vh;
 }
 
 .sidenav {
+  position: fixed;
+  width: 25vw;
+  height: 88vh;
+  top: 12vh;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -69,4 +92,15 @@ body {
 
 .plain-link:hover {
   background-color: chocolate;
+}
+
+.reviews-list {
+  position: relative;
+  height: 60vh;
+}
+
+.review-img {
+  height: 20vh;
+  width: 20vh;
+  object-fit: cover;
 }

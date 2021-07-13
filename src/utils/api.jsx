@@ -5,6 +5,11 @@ const gamesApi = axios.create({
 });
 
 export const getReviews = async () => {
-  const reviewObj = await gamesApi.get(`/reviews`);
-  return reviewObj.data;
+  const reviewsObj = await gamesApi.get(`/reviews`);
+  return reviewsObj.data;
+};
+
+export const getUsers = async () => {
+  const usersObj = await gamesApi.get(`/users`);
+  return usersObj.data;
 };

@@ -37,7 +37,6 @@ ul {
   grid-area: contents;
   overflow: auto;
   height: 88vh;
-  padding-bottom: 10em;
 }
 
 .header {
@@ -103,4 +102,32 @@ ul {
   height: 20vh;
   width: 20vh;
   object-fit: cover;
+}
+
+.review-card {
+  display: flex;
+  flex-direction: column;
+  background-color: burlywood;
+  margin: 2em 3em;
+  padding: 0 1em;
+  border-radius: 0.3em;
+}
+
+.card-info {
+  display: flex;
+}
+
+.card-details {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin: 4em 0 2em 1em;
+}
+
+.votes-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 5vh;
+  padding-bottom: 0.2em;
 }

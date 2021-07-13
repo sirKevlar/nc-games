@@ -13,6 +13,7 @@ import Sidenav from "./components/Sidenav";
 
 function App() {
   const [reviews, setReviews] = useState([]);
+  const [users, setUsers] = useState([]);
   return (
     <div className="App">
       <Header />
@@ -31,7 +32,7 @@ function App() {
           <ReviewSingle />
         </Route>
         <Route exact path="/users">
-          <Users />
+          <Users users={users} setUsers={setUsers} />
         </Route>
         <Route exact path="/users/:user_id">
           <UserSingle />

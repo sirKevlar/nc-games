@@ -4,7 +4,6 @@ import { useState } from "react";
 import { UserContext } from "./contexts/UserContext";
 import Header from "./components/Header";
 import Home from "./pages/Home";
-import Comments from "./pages/Comments";
 import Reviews from "./pages/Reviews";
 import ReviewSingle from "./pages/ReviewSingle";
 import Users from "./pages/Users";
@@ -16,7 +15,8 @@ import Intro from "./pages/Intro";
 function App() {
   const [reviews, setReviews] = useState([]);
   const [users, setUsers] = useState([]);
-  const [profileUser, setProfileUser] = useState([]);
+  const [user, setUser] = useState([]);
+  const [profileUser, setProfileUser] = useState("tickle122");
 
   return (
     <UserContext.Provider value={{ profileUser, setProfileUser }}>
@@ -30,9 +30,6 @@ function App() {
           <Route exact path="/home">
             <Home />
           </Route>
-          <Route exact path="/reviews/:review_id/comments">
-            <Comments />
-          </Route>
           <Route exact path="/reviews">
             <Reviews reviews={reviews} setReviews={setReviews} />
           </Route>
@@ -43,7 +40,7 @@ function App() {
             <Users users={users} setUsers={setUsers} />
           </Route>
           <Route exact path="/users/:user_id">
-            <UserSingle />
+            <UserSingle user={user} setUser={setUser} />
           </Route>
           <Route path="*">
             <InvalidPath />

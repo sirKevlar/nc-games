@@ -1,16 +1,20 @@
 import React from "react";
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
 import { getUsers } from "../utils/api";
-import { selectProfileUser } from "../utils/utils";
 import gamesLogo from "../assets/logos/gamesLogoSimple.png";
+import { UserContext } from "../contexts/UserContext";
 
 const Intro = ({ users, setUsers }) => {
+  const { setProfileUser } = useContext(UserContext);
+
   useEffect(() => {
     getUsers().then((userFromApi) => {
       const { users } = userFromApi;
       setUsers(users);
     });
   }, [setUsers]);
+
   return (
     <div className="full-viewport">
       <img src={gamesLogo} alt="games logo" />
@@ -20,7 +24,8 @@ const Intro = ({ users, setUsers }) => {
           <select
             id="user-id"
             onChange={(event) => {
-              selectProfileUser(event);
+              const newUser = event.target.value;
+              setProfileUser(newUser);
             }}
           >
             {users.map((user) => {
@@ -31,7 +36,9 @@ const Intro = ({ users, setUsers }) => {
               );
             })}
           </select>
-          <button className="button">LET ME IN</button>
+          <Link className="no-styling" to={`/home`}>
+            <button className="button">LET ME IN</button>
+          </Link>
         </form>
       </div>
     </div>

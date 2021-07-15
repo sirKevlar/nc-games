@@ -40,6 +40,7 @@ function App() {
               reviews={reviews}
               setReviews={setReviews}
               selectedCategory={selectedCategory}
+              setSelectedCategory={setSelectedCategory}
             />
           </Route>
           <Route exact path="/reviews/:review_id">

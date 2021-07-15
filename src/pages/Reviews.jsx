@@ -3,8 +3,12 @@ import { useEffect } from "react";
 import { getReviews } from "../utils/api";
 import { Link } from "react-router-dom";
 
-const Reviews = ({ reviews, setReviews, selectedCategory }) => {
-  console.log(reviews);
+const Reviews = ({
+  reviews,
+  setReviews,
+  selectedCategory,
+  setSelectedCategory,
+}) => {
   useEffect(() => {
     getReviews().then((reviewsFromApi) => {
       const { reviews } = reviewsFromApi;

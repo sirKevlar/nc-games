@@ -17,12 +17,17 @@ function App() {
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState([]);
   const [profileUser, setProfileUser] = useState("tickle122");
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
   return (
     <UserContext.Provider value={{ profileUser, setProfileUser }}>
       <div className="App">
         <Header />
-        <Sidenav />
+        <Sidenav
+          setReviews={setReviews}
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+        />
         <Switch>
           <Route exact path="/">
             <Intro users={users} setUsers={setUsers} />
@@ -31,7 +36,11 @@ function App() {
             <Home />
           </Route>
           <Route exact path="/reviews">
-            <Reviews reviews={reviews} setReviews={setReviews} />
+            <Reviews
+              reviews={reviews}
+              setReviews={setReviews}
+              selectedCategory={selectedCategory}
+            />
           </Route>
           <Route exact path="/reviews/:review_id">
             <ReviewSingle />

@@ -16,7 +16,7 @@ const ReviewSingle = () => {
 
   return (
     <div className="full-screen-scroll">
-      <ul className="single-review-list">
+      <ul id="rev-single-list" className="single-review-list">
         <section className="card">
           <div className="card-info">
             <section className="pic-plus-id">

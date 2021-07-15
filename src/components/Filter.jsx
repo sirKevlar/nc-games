@@ -2,7 +2,8 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { getCategories } from "../utils/api";
 
-const Filter = () => {
+const Filter = ({ selectedCategory, setSelectedCategory }) => {
+  console.log(selectedCategory);
   const [categories, setCategories] = useState([]);
   useEffect(() => {
     getCategories().then((categoriesFromApi) => {
@@ -11,6 +12,16 @@ const Filter = () => {
       console.log("CATEGORIES>>>", categories);
     });
   }, [setCategories]);
+
+  // const filterReviews = (category) => {
+  //   useEffect(() => {
+  //     getReviewsByCategory(category).then((reviewsFromApi) => {
+  //       const { reviews } = reviewsFromApi;
+  //       setReviews(reviews);
+  //       console.log("REVIEWS>>>", reviews);
+  //     });
+  //   });
+  // };
 
   return (
     <div>
@@ -25,6 +36,9 @@ const Filter = () => {
                   id={category.slug}
                   name="category"
                   value={category.slug}
+                  onClick={(event) => {
+                    setSelectedCategory(event.target.id);
+                  }}
                 />
                 <label htmlFor={category.slug}>{category.slug}</label>
               </div>

@@ -3,17 +3,27 @@ import { useEffect } from "react";
 import { getReviews } from "../utils/api";
 import { Link } from "react-router-dom";
 
-const Reviews = ({ reviews, setReviews }) => {
+const Reviews = ({ reviews, setReviews, selectedCategory }) => {
+  console.log(reviews);
   useEffect(() => {
     getReviews().then((reviewsFromApi) => {
       const { reviews } = reviewsFromApi;
       setReviews(reviews);
     });
   }, [setReviews]);
+
+  useEffect(() => {
+    setReviews((currentReviews) => {
+      return currentReviews.filter(
+        (review) => review.category === selectedCategory
+      );
+    });
+  }, [selectedCategory, setReviews]);
+
   return (
     <div className="full-screen-scroll">
       <div className="contain-list">
-        <ul className="list">
+        <ul id="rev-list" className="list">
           {reviews.map((review) => {
             return (
               <li key={review.review_id}>

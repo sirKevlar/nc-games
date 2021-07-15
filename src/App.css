@@ -22,13 +22,18 @@ form {
 }
 
 label {
-  padding: 0 0 0.8em 0.3em;
+  padding: 0 0 0.5em 0.3em;
 }
 
-h4 {
+h4,
+button {
   margin: 0 0 0.8em 0;
+  text-align: left;
 }
 
+.button {
+  margin: 0;
+}
 .App {
   text-align: center;
   display: grid;
@@ -109,10 +114,10 @@ h4 {
   flex-direction: column;
 }
 
-.contain-list {
+/* .contain-list {
   position: relative;
   height: fit-content;
-}
+} */
 
 .logo {
   position: relative;
@@ -168,10 +173,17 @@ h4 {
   background-color: aquamarine;
 }
 
+#rev-list,
+#rev-single-list {
+  position: absolute;
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .category-radio {
   display: flex;
   align-items: flex-start;
-  width: 15vw;
+  width: 20vw;
 }
 
 .card {
@@ -202,6 +214,10 @@ h4 {
   padding-bottom: 0.2em;
 }
 
+#home-votes {
+  padding-top: 0.3em;
+}
+
 .users {
   height: 8vh;
   display: flex;
@@ -214,6 +230,7 @@ h4 {
 
 .user-icon {
   padding: 0.2em;
+  height: 7vh;
 }
 
 .small-icon {

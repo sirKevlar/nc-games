@@ -3,11 +3,15 @@ import Filter from "./Filter";
 import Profile from "./Profile";
 import Sort from "./Sort";
 
-const Sidenav = () => {
+const Sidenav = ({ setReviews, selectedCategory, setSelectedCategory }) => {
   return (
     <div className="sidenav">
       <Profile />
-      <Filter />
+      <Filter
+        setReviews={setReviews}
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
+      />
       <Sort />
     </div>
   );

@@ -20,6 +20,11 @@ export const getRandomReview = async () => {
   return reviewObj.data;
 };
 
+export const getReviewsByCategory = async (category) => {
+  const reviewObj = await gamesApi.get(`/reviews?category=${category}`);
+  return reviewObj.data;
+};
+
 export const getCommentsByReviewId = async ({ review_id }) => {
   const commentsObj = await gamesApi.get(`/reviews/${review_id}/comments`);
   return commentsObj.data;

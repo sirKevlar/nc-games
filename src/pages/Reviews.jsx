@@ -8,6 +8,8 @@ const Reviews = ({
   setReviews,
   selectedCategory,
   setSelectedCategory,
+  sortBy,
+  sortOrder,
 }) => {
   useEffect(() => {
     getReviews().then((reviewsFromApi) => {
@@ -16,19 +18,21 @@ const Reviews = ({
     });
   }, [setReviews]);
 
-  useEffect(() => {
-    setReviews((currentReviews) => {
-      return currentReviews.filter(
-        (review) => review.category === selectedCategory
-      );
-    });
-  }, [selectedCategory, setReviews]);
+  let reviewsCopy = [];
+
+  if (selectedCategory.length > 0) {
+    reviewsCopy = reviews.filter(
+      (review) => review.category === selectedCategory
+    );
+  } else {
+    reviewsCopy = [...reviews];
+  }
 
   return (
     <div className="full-screen-scroll">
       <div className="contain-list">
         <ul id="rev-list" className="list">
-          {reviews.map((review) => {
+          {reviewsCopy.map((review) => {
             return (
               <li key={review.review_id}>
                 <Link

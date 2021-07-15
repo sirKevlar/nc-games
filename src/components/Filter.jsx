@@ -3,25 +3,13 @@ import { useState, useEffect } from "react";
 import { getCategories } from "../utils/api";
 
 const Filter = ({ selectedCategory, setSelectedCategory }) => {
-  console.log(selectedCategory);
   const [categories, setCategories] = useState([]);
   useEffect(() => {
     getCategories().then((categoriesFromApi) => {
       const { categories } = categoriesFromApi;
       setCategories(categories);
-      console.log("CATEGORIES>>>", categories);
     });
   }, [setCategories]);
-
-  // const filterReviews = (category) => {
-  //   useEffect(() => {
-  //     getReviewsByCategory(category).then((reviewsFromApi) => {
-  //       const { reviews } = reviewsFromApi;
-  //       setReviews(reviews);
-  //       console.log("REVIEWS>>>", reviews);
-  //     });
-  //   });
-  // };
 
   return (
     <div>

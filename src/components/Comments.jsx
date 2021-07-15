@@ -13,8 +13,6 @@ const Comments = () => {
     });
   }, [setComments, id]);
 
-  console.log(comments);
-
   return (
     <ul className="list">
       {comments.map((comment) => {

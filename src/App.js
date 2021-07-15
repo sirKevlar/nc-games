@@ -17,16 +17,21 @@ function App() {
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState([]);
   const [profileUser, setProfileUser] = useState("tickle122");
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState([]);
+  const [sortBy, setSortBy] = useState("desc");
+  const [sortOrder, setSortOrder] = useState([]);
 
   return (
     <UserContext.Provider value={{ profileUser, setProfileUser }}>
       <div className="App">
         <Header />
         <Sidenav
-          setReviews={setReviews}
           selectedCategory={selectedCategory}
           setSelectedCategory={setSelectedCategory}
+          sortBy={sortBy}
+          setSortBy={setSortBy}
+          sortOrder={sortOrder}
+          setSortOrder={setSortOrder}
         />
         <Switch>
           <Route exact path="/">
@@ -41,6 +46,8 @@ function App() {
               setReviews={setReviews}
               selectedCategory={selectedCategory}
               setSelectedCategory={setSelectedCategory}
+              sortBy={sortBy}
+              sortOrder={sortOrder}
             />
           </Route>
           <Route exact path="/reviews/:review_id">

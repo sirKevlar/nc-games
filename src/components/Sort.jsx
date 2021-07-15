@@ -1,60 +1,53 @@
 import React from "react";
 
-const Sort = () => {
+const Sort = ({ sortBy, setSortBy, sortOrder, setSortOrder }) => {
+  const sortOptions = ["posted", "comments", "votes"];
+  const orderOptions = ["ascending", "descending"];
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("SORT>>", sortBy, "ORDER>>", sortOrder);
+  };
+
   return (
-    <form className="sort-section" action="">
+    <form className="sort-section" onSubmit={handleSubmit}>
       <h4>SORT BY:</h4>
-      <div className="category-radio">
-        <input
-          className="radio"
-          type="radio"
-          id="posted"
-          name="sort"
-          value="posted"
-        />
-        <label htmlFor="posted">Posted</label>
-      </div>
-      <div className="category-radio">
-        <input
-          className="radio"
-          type="radio"
-          id="comments"
-          name="sort"
-          value="comments"
-        />
-        <label htmlFor="comments">Comments</label>
-      </div>
-      <div className="category-radio">
-        <input
-          className="radio"
-          type="radio"
-          id="votes"
-          name="sort"
-          value="votes"
-        />
-        <label htmlFor="votes">Votes</label>
-      </div>
+      {sortOptions.map((option) => {
+        return (
+          <div key={option} className="category-radio">
+            <input
+              className="radio"
+              type="radio"
+              id={option}
+              name="sort"
+              value={option}
+              onClick={(event) => {
+                setSortBy(event.target.id);
+              }}
+            />
+            <label htmlFor="posted">{option}</label>
+          </div>
+        );
+      })}
+
       <h4>ASC OR DESC:</h4>
-      <div className="category-radio">
-        <input
-          className="radio"
-          type="radio"
-          id="asc"
-          name="order"
-          value="asc"
-        />
-        <label htmlFor="votes">Ascending</label>
-      </div>
-      <div className="category-radio">
-        <input
-          className="radio"
-          type="radio"
-          id="desc"
-          name="order"
-          value="desc"
-        />
-        <label htmlFor="votes">Descending</label>
-      </div>
+      {orderOptions.map((option) => {
+        return (
+          <div key={option} className="category-radio">
+            <input
+              className="radio"
+              type="radio"
+              id={option}
+              name="order"
+              value={option}
+              onClick={(event) => {
+                setSortOrder(event.target.id);
+              }}
+            />
+            <label htmlFor="votes">{option}</label>
+          </div>
+        );
+      })}
+      <button className="sort-button">SORT ME</button>
     </form>
   );
 };

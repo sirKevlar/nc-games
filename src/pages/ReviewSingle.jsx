@@ -23,7 +23,9 @@ const ReviewSingle = () => {
       userName: profileUser,
       comment: newCommentBody,
     };
-    postComment(id, newReview); //add .then log result
+    postComment(id, newReview).then((newComment) => {
+      console.log(newComment);
+    });
   };
 
   return (

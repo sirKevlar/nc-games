@@ -18,8 +18,8 @@ function App() {
   const [user, setUser] = useState([]);
   const [profileUser, setProfileUser] = useState("tickle122");
   const [selectedCategory, setSelectedCategory] = useState([]);
-  const [sortBy, setSortBy] = useState("desc");
-  const [sortOrder, setSortOrder] = useState([]);
+  const [sortBy, setSortBy] = useState("created_at");
+  const [sortOrder, setSortOrder] = useState("desc");
 
   return (
     <UserContext.Provider value={{ profileUser, setProfileUser }}>
@@ -32,6 +32,7 @@ function App() {
           setSortBy={setSortBy}
           sortOrder={sortOrder}
           setSortOrder={setSortOrder}
+          setReviews={setReviews}
         />
         <Switch>
           <Route exact path="/">

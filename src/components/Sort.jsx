@@ -1,12 +1,21 @@
 import React from "react";
+import { useEffect } from "react";
+import { getSortedReviews } from "../utils/api";
 
-const Sort = ({ sortBy, setSortBy, sortOrder, setSortOrder }) => {
+const Sort = ({ sortBy, setSortBy, sortOrder, setSortOrder, setReviews }) => {
   const sortOptions = ["posted", "comments", "votes"];
   const orderOptions = ["ascending", "descending"];
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("SORT>>", sortBy, "ORDER>>", sortOrder);
   };
+
+  useEffect(() => {
+    getSortedReviews(sortBy, sortOrder).then((reviewsFromApi) => {
+      const { reviews } = reviewsFromApi;
+      setReviews(reviews);
+    });
+  }, [setReviews, sortBy, sortOrder]);
 
   return (
     <form className="sort-section" onSubmit={handleSubmit}>
@@ -47,7 +56,6 @@ const Sort = ({ sortBy, setSortBy, sortOrder, setSortOrder }) => {
           </div>
         );
       })}
-      <button className="sort-button">SORT ME</button>
     </form>
   );
 };

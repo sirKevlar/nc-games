@@ -24,6 +24,7 @@ const Sidenav = ({
         setSortBy={setSortBy}
         sortOrder={sortOrder}
         setSortOrder={setSortOrder}
+        setReviews={setReviews}
       />
     </div>
   );

@@ -25,6 +25,26 @@ export const getReviewsByCategory = async (category) => {
   return reviewObj.data;
 };
 
+export const getSortedReviews = async (sortBy, sortOrder) => {
+  let sort = "";
+  let order = "";
+
+  sortOrder === "ascending" ? (order = "asc") : (order = "desc");
+
+  if (sortBy === "votes") {
+    sort = "votes";
+  } else if (sortOrder === "comments") {
+    sort = "comment_count";
+  } else {
+    sort = "created_at";
+  }
+
+  const reviewObj = await gamesApi.get(
+    `/reviews?sort_by=${sort}&order=${order}`
+  );
+  return reviewObj.data;
+};
+
 export const getCommentsByReviewId = async ({ review_id }) => {
   const commentsObj = await gamesApi.get(`/reviews/${review_id}/comments`);
   return commentsObj.data;

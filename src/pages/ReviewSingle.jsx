@@ -8,6 +8,7 @@ import Comments from "../components/Comments";
 const ReviewSingle = () => {
   const { profileUser } = useContext(UserContext);
   const [review, setReview] = useState([]);
+  const [comments, setComments] = useState([]);
   const [newCommentBody, setNewCommentBody] = useState("");
   const id = useParams();
   useEffect(() => {
@@ -24,7 +25,10 @@ const ReviewSingle = () => {
       comment: newCommentBody,
     };
     postComment(id, newReview).then((newComment) => {
-      console.log(newComment);
+      setComments((currComments) => {
+        const newComments = [newComment, ...currComments];
+        return newComments;
+      });
     });
   };
 
@@ -64,7 +68,7 @@ const ReviewSingle = () => {
         <div id="review-body">{review.review_body}</div>
       </ul>
       <ul className="comments-list">
-        <Comments />
+        <Comments comments={comments} setComments={setComments} />
       </ul>
     </div>
   );

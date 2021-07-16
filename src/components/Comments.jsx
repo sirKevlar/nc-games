@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { getCommentsByReviewId } from "../utils/api";
 
-const Comments = () => {
-  const [comments, setComments] = useState([]);
+const Comments = ({ comments, setComments }) => {
+  // const [comments, setComments] = useState([]);
   const id = useParams();
   useEffect(() => {
     getCommentsByReviewId(id).then((commentData) => {

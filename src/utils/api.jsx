@@ -51,10 +51,12 @@ export const getCommentsByReviewId = async ({ review_id }) => {
 };
 
 export const postComment = async (review_id, newComment) => {
+  console.log(review_id);
   const { data } = await gamesApi.post(
-    `/review/${review_id}/comments`,
+    `/reviews/${review_id.review_id}/comments`,
     newComment
   );
+  console.log(data);
   return data.comments;
 };
 

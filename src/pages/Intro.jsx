@@ -17,7 +17,7 @@ const Intro = ({ users, setUsers }) => {
 
   return (
     <div className="full-viewport">
-      <img src={gamesLogo} alt="games logo" />
+      <img class="logo" src={gamesLogo} alt="games logo" />
       <div className="user-select">
         <h3>Select your user...</h3>
         <form className="dropdown">

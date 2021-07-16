@@ -56,8 +56,7 @@ export const postComment = async (review_id, newComment) => {
     `/reviews/${review_id.review_id}/comments`,
     newComment
   );
-  console.log(data);
-  return data.comments;
+  return data;
 };
 
 export const getUsers = async () => {

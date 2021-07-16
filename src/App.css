@@ -1,49 +1,23 @@
-body {
-  min-width: 350px;
-  max-width: 600px;
+/* STRUCTURE */
+.no-styling {
+  text-decoration: none;
 }
 
-ul,
-li {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  list-style-type: none;
-  padding: 0;
-  margin-block-start: 0;
-  margin-block-end: 0;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  padding-inline-start: 0;
+*:focus {
+  outline: none;
 }
 
-form {
-  background-color: blueviolet;
-}
-
-label {
-  padding: 0 0 0.5em 0.3em;
-}
-
-h4,
-button {
-  margin: 0 0 0.8em 0;
-  text-align: left;
-}
-
-.button {
-  margin: 0;
-}
 .App {
+  color: aliceblue;
   text-align: center;
   display: grid;
   grid-template-rows: 12vh auto;
-  grid-template-columns: 25vw 25vw 25vw 25vw;
+  grid-template-columns: 25vw 75vw;
   grid-template-areas:
-    "header header header header"
-    "sidenav contents contents contents";
+    "header header"
+    "sidenav contents";
 }
-
+/* FOR INTRO PAGE */
 .full-viewport {
   display: flex;
   flex-direction: column;
@@ -52,30 +26,28 @@ button {
   width: 100vw;
   height: 100vh;
   z-index: 1000;
-  background-color: darkmagenta;
-}
-
-.full-screen {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  height: 88vh;
-  background-color: rgb(151, 241, 241);
-  grid-area: contents;
+  background: linear-gradient(
+    to bottom right,
+    rgb(44, 31, 43),
+    rgb(78, 78, 78)
+  );
 }
 
 .full-screen-scroll {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
-  background-color: rgb(151, 241, 241);
+  background: linear-gradient(
+    to bottom right,
+    rgb(32, 32, 32),
+    rgb(78, 78, 78)
+  );
   grid-area: contents;
   overflow: auto;
   height: 88vh;
 }
-
+/* NAVS */
 .header {
   display: flex;
   position: fixed;
@@ -91,7 +63,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background-color: rgb(245, 171, 145);
+  background-color: fuchsia;
   width: 100vw;
   height: 12vh;
 }
@@ -106,78 +78,25 @@ button {
   align-items: center;
   justify-content: space-around;
   grid-area: sidenav;
-  background-color: darkgreen;
+  background-color: darkslategray;
 }
 
-.sort-section {
-  display: flex;
-  flex-direction: column;
-}
-
-/* .contain-list {
-  position: relative;
-  height: fit-content;
-} */
-
-.logo {
-  position: relative;
-  background-color: crimson;
-}
-
-.no-styling {
-  text-decoration: none;
-}
-
-.plain-link {
+.nav-link {
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  background-color: chartreuse;
-  width: 25vw;
-  height: 8vh;
+  width: 33vw;
+  height: 11.4vh;
   font-weight: 700;
   letter-spacing: 0.1em;
+  background-color: darkslategray;
+  color: aliceblue;
 }
 
-.plain-link:hover,
-.plain-link:focus {
-  background-color: chocolate;
-}
-
-*:focus {
-  outline: none;
-}
-
-.user-list,
-.comments-list,
-.list {
-  margin-top: 0;
-}
-
-.review-img {
-  height: 20vh;
-  width: 20vh;
-  object-fit: cover;
-}
-
-#review-body {
-  width: 80%;
-  margin-top: 15vh;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#review-card:hover,
-#review-card:focus {
-  background-color: aquamarine;
-}
-
-#rev-list,
-#rev-single-list {
-  position: absolute;
-  display: flex;
-  justify-content: space-evenly;
+.nav-link:hover,
+.nav-link:focus {
+  background-color: #2f4f4f00;
 }
 
 .category-radio {
@@ -186,13 +105,96 @@ button {
   width: 20vw;
 }
 
+.sort-section {
+  display: flex;
+  flex-direction: column;
+}
+
+#sort-by {
+  margin-top: 0;
+}
+/* GENERIC STYLING */
+ul,
+li {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  list-style-type: none;
+  padding: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 0;
+}
+
+form {
+  background-color: dimgray;
+  padding: 0.5em 0.3em;
+  border-radius: 0.2em;
+  border-color: fuchsia;
+  border-style: ridge;
+  color: aliceblue;
+}
+
+label,
+input {
+  padding-bottom: 0.2em;
+}
+
+h4,
+h3 {
+  margin: 0.4em;
+}
+
+button {
+  display: inline-block;
+  border-radius: 0.3em;
+  border: fuchsia;
+  border-style: ridge;
+  padding: 0.8rem 1.6rem;
+  margin: 0;
+  text-decoration: none;
+  background: #ff00ff00;
+  color: #ffffff;
+  font-family: sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background 300ms ease-in-out, transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+button:hover,
+button:focus {
+  background-color: fuchsia;
+  border-style: outset;
+}
+.content {
+  width: 55vw;
+}
+/* CARD */
 .card {
   display: flex;
   flex-direction: column;
-  background-color: burlywood;
-  margin: 2em 3em;
-  padding: 0 1em;
-  border-radius: 0.3em;
+  min-width: 40vw;
+  background: linear-gradient(
+    to bottom right,
+    rgb(101, 12, 104),
+    rgba(101, 12, 104, 0.2)
+  );
+  color: aliceblue;
+  margin: 3rem 0 3rem 0;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+}
+
+.card:hover,
+.card:focus {
+  transform: scale(1.03);
+  border-color: fuchsia;
+  box-shadow: 0 3px 10px rgb(255, 0, 255);
 }
 
 .card-info {
@@ -200,57 +202,67 @@ button {
 }
 
 .card-details {
+  padding: 0.3em;
   display: flex;
   flex-direction: column;
-  text-align: left;
-  margin: 4em 0 2em 1em;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .votes-section {
   display: flex;
   justify-content: space-around;
-  align-items: center;
-  height: 5vh;
-  padding-bottom: 0.2em;
 }
 
-#home-votes {
-  padding-top: 0.3em;
+.votes {
+  padding-top: 0.45em;
 }
 
-.users {
-  height: 8vh;
-  display: flex;
-}
-
-.usernames {
-  margin-left: 2em;
-  margin-right: -3em;
-}
-
-.user-icon {
-  padding: 0.2em;
-  height: 7vh;
+.logo {
+  position: relative;
+  margin: 3rem 0 5rem 0;
+  padding: 1em 0 1em 0;
+  border-radius: 0.2em;
+  background-color: fuchsia;
 }
 
 .small-icon {
-  width: 80%;
+  width: 14vw;
+}
+/* REVIEWS */
+.review-img {
+  height: 20vh;
+  width: 20vh;
+  object-fit: cover;
 }
 
-#user-card:hover,
-#user-card:focus {
-  background-color: rgb(238, 117, 141);
+#review-body {
+  background-color: aliceblue;
+  color: black;
+  border-radius: 0.2em;
+  padding: 0.5em;
 }
-/* INTRO PAGE DROPDOWN MENU */
+
+/* COMMENTS */
+.comments {
+  border-radius: 0.2em;
+  color: black;
+  margin-bottom: 0.5em;
+  background-color: aliceblue;
+}
+
+#post-comment {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 3em;
+}
+
+/* INTRO PAGE */
 .dropdown {
   display: flex;
   width: 45vw;
   justify-content: space-between;
   margin-top: 2em;
   opacity: 0.8;
-}
-
-.button:hover,
-.button:focus {
-  background-color: darkorange;
 }

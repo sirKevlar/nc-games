@@ -19,7 +19,7 @@ const Sort = ({ sortBy, setSortBy, sortOrder, setSortOrder, setReviews }) => {
 
   return (
     <form className="sort-section" onSubmit={handleSubmit}>
-      <h4>SORT BY:</h4>
+      <h4 id="sort-by">SORT BY:</h4>
       {sortOptions.map((option) => {
         return (
           <div key={option} className="category-radio">

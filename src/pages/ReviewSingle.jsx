@@ -21,8 +21,8 @@ const ReviewSingle = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const newReview = {
-      userName: profileUser,
-      comment: newCommentBody,
+      username: profileUser,
+      body: newCommentBody,
     };
     postComment(id, newReview).then((newComment) => {
       setComments((currComments) => {
@@ -34,42 +34,48 @@ const ReviewSingle = () => {
 
   return (
     <div className="full-screen-scroll">
-      <ul id="rev-single-list" className="single-review-list">
-        <section className="card">
-          <div className="card-info">
-            <section className="pic-plus-id">
-              <h3 className="user-name">{review.owner}</h3>
-              <img
-                src={review.review_img_url}
-                alt={review.title + "'s picture"}
-                className="review-img"
-              />
+      <div className="content">
+        <section className="review-single">
+          <section id="single-review-card" className="card">
+            <div className="card-info">
+              <section className="pic-plus-id">
+                <h3 className="user-name">{review.owner}</h3>
+                <img
+                  src={review.review_img_url}
+                  alt={review.title + "'s picture"}
+                  className="review-img"
+                />
+              </section>
+              <section className="card-details">
+                <h4>{review.title}</h4>
+                <h4>CATEGORY: {review.category}</h4>
+              </section>
+            </div>
+            <section className="votes-section">
+              <h4 className="votes">VOTES: {review.votes}</h4>
+              <button>UP VOTE</button>
             </section>
-            <section className="card-details">
-              <h4>{review.title}</h4>
-              <h4>CATEGORY: {review.category}</h4>
-            </section>
-          </div>
-          <section className="votes-section">
-            <h4>VOTES: {review.votes}</h4>
-            <button>UP VOTE</button>
           </section>
+          <div id="review-body">{review.review_body}</div>
+          <form
+            id="post-comment"
+            onSubmit={handleSubmit}
+            className="add-comments"
+          >
+            <label>
+              <textarea
+                value={newCommentBody}
+                className="comment-input"
+                onChange={(event) => setNewCommentBody(event.target.value)}
+              ></textarea>
+            </label>
+            <button>POST</button>
+          </form>
         </section>
-        <form onSubmit={handleSubmit} className="add-comments">
-          <label>
-            <textarea
-              value={newCommentBody}
-              className="comment-input"
-              onChange={(event) => setNewCommentBody(event.target.value)}
-            ></textarea>
-          </label>
-          <button>POST</button>
-        </form>
-        <div id="review-body">{review.review_body}</div>
-      </ul>
-      <ul className="comments-list">
+      </div>
+      <section className="comments-list">
         <Comments comments={comments} setComments={setComments} />
-      </ul>
+      </section>
     </div>
   );
 };

@@ -1,10 +1,10 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router";
+import UpVote from "../customHooks/UpVote";
 import { getCommentsByReviewId } from "../utils/api";
 
 const Comments = ({ comments, setComments }) => {
-  // const [comments, setComments] = useState([]);
   const id = useParams();
   useEffect(() => {
     getCommentsByReviewId(id).then((commentData) => {
@@ -14,22 +14,22 @@ const Comments = ({ comments, setComments }) => {
   }, [setComments, id]);
 
   return (
-    <ul className="list">
+    <section className="content">
       {comments.map((comment) => {
         return (
-          <li key={comment.comment_id}>
-            <section className="card">
+          <section key={comment.comment_id} className="card">
+            <div className="comments">
               <h3>{comment.author}</h3>
               <p>{comment.body}</p>
-              <section className="votes">
-                <h4>VOTES: {comment.votes}</h4>
-                <button>UP VOTE</button>
-              </section>
+            </div>
+            <section className="votes-section">
+              <h4 className="votes">VOTES: {comment.votes}</h4>
+              <button onClick={UpVote}>UP VOTE</button>
             </section>
-          </li>
+          </section>
         );
       })}
-    </ul>
+    </section>
   );
 };
 

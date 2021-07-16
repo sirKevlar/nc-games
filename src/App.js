@@ -7,7 +7,6 @@ import Home from "./pages/Home";
 import Reviews from "./pages/Reviews";
 import ReviewSingle from "./pages/ReviewSingle";
 import Users from "./pages/Users";
-import UserSingle from "./pages/UserSingle";
 import InvalidPath from "./pages/InvalidPath";
 import Sidenav from "./components/Sidenav";
 import Intro from "./pages/Intro";
@@ -15,7 +14,6 @@ import Intro from "./pages/Intro";
 function App() {
   const [reviews, setReviews] = useState([]);
   const [users, setUsers] = useState([]);
-  const [user, setUser] = useState([]);
   const [profileUser, setProfileUser] = useState("tickle122");
   const [selectedCategory, setSelectedCategory] = useState([]);
   const [sortBy, setSortBy] = useState("created_at");
@@ -56,9 +54,6 @@ function App() {
           </Route>
           <Route exact path="/users">
             <Users users={users} setUsers={setUsers} />
-          </Route>
-          <Route exact path="/users/:user_id">
-            <UserSingle user={user} setUser={setUser} />
           </Route>
           <Route path="*">
             <InvalidPath />

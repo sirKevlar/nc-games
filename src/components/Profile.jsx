@@ -27,6 +27,7 @@ const Profile = () => {
         alt="user icon"
       />
       <h4>{profileUser}</h4>
+      <button className="button">SIGN OUT</button>
     </div>
   );
 };

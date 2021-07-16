@@ -40,7 +40,7 @@ const Users = ({ users, setUsers }) => {
                 <li className="users">
                   <div className="card-info">
                     <img
-                      className="user-icon"
+                      className="small-icon"
                       src={userIcons[user.username]}
                       alt="user icon"
                     />
